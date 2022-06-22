@@ -1,0 +1,16 @@
+package com.ks.udemyspringboot;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class HelloSpringApp {
+  public static void main(String[] args) {
+    ClassPathXmlApplicationContext context =
+        new ClassPathXmlApplicationContext("applicationContext.xml");
+
+    Coach theCoach = context.getBean("myCoach", Coach.class);
+    Coach theOtherCoach = context.getBean("myFootballCoach", Coach.class);
+    System.out.println(theCoach.getDailyWorkout());
+    System.out.println(theOtherCoach.getDailyWorkout());
+    context.close();
+  }
+}
